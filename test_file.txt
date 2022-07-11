@@ -1,0 +1,14 @@
+this is a test, this test is a test that will 'check' for three words!"#$%&()*+,-./:;<=>?@[]{}
+
+in this test, we will check for a combination of three words, it's a "test" that's the best!
+!"#$%&()*+,-./:;<=>?@[]{}
+for a test that will check for three words, don't assume it will check for three words
+will check fo or TWILL check for???
+this test 'might' not work!
+i repeat, this test might NOT work! it will check for three word phrases
+
+I love
+sandwiches. boy do i
+I`LOVE|SANDWICHES^ is another way of saying it
+"(I LOVE SANDWICHES!!)")
+"(I LOVE SANDWICH!!)")
