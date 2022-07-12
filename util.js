@@ -58,7 +58,7 @@ function processWordsArray() {
     // will run on loop as long as there are enough words for a phrase
     while (wordsArray.length > 2) {
         // Create the 3 word phrase
-        const threeWordPhrase = `${wordsArray[0]}${wordsArray[1]}${wordsArray[2]}`;
+        const threeWordPhrase = `${wordsArray[0]} ${wordsArray[1]} ${wordsArray[2]}`;
 
         // Add to the tally for that phrase
         phrasesObj[threeWordPhrase] = 1 + (phrasesObj[threeWordPhrase] || 0);
