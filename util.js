@@ -4,7 +4,7 @@ const path = require("path");
 // Constants
 const INVALID_CHAR_REGEX = /[!"#$%|&()*+,-./\\:;|<=>?@[\]^_`{|}~\t\n\r]/g;
 const NOT_A_CONTRACTION_REGEX = /'+\s|\s+'/g;
-const MAXIMUM_RESULT_LENGTH = 5;
+const MAXIMUM_RESULT_LENGTH = 100;
 
 // Working variables
 let wordsArray = [];
@@ -13,6 +13,11 @@ let result = '';
 
 // Get filename from command line argument
 function getFilePath() {
+    if (process.argv.length < 3) {
+        console.log(`Please provide the filename as an argument.\n> node app.js filename.txt`);
+        return;
+    }
+
     // Grab requested filename from the command line
     const arguments = process.argv.splice(2);
     const requestedFileName = arguments[0];

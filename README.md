@@ -6,7 +6,7 @@ This is a NodeJS app that will run from the command line. Place a text file in t
 
 `node app.js filename.txt`
 
-Output will be the Top Five 3-word phrases in this format:
+Output will be the Top 100 3-word phrases in this format:
 
 > threewordphrase - 10  
 anotherphraseentry - 7  
@@ -14,7 +14,7 @@ yetanotherone - 4
 heresthisphrase - 2  
 andthisone - 2
 
-Should be performant enough to process over 22,000 lines of Herman Melville's *Moby Dick* in about a second.
+Should be performant enough to process over 22,000 lines of Herman Melville's *Moby Dick* in about 250 milliseconds.
 
 ***
 
