@@ -14,9 +14,9 @@ yetanotherone - 4
 heresthisphrase - 2  
 andthisone - 2
 
+Should be performant enough to process over 22,000 lines of Herman Melville's *Moby Dick* in about a second.
+
 ***
 
-#### Current known issues:
-* slow performance on larger text files (currently processing 219 lines / second)
-* need to enable command line parameter for filename instead of hardcoding
+#### Current known issues: 
 * needs tests!

@@ -1,3 +1,5 @@
+const path = require("path");
+
 // Constants
 const INVALID_CHAR_REGEX = /[!"#$%|&()*+,-./\\:;|<=>?@[\]^_`{|}~\t\n\r]/g;
 const NOT_A_CONTRACTION_REGEX = /'+\s|\s+'/g;
@@ -7,6 +9,16 @@ const MAXIMUM_RESULT_LENGTH = 5;
 let wordsArray = [];
 let phrasesObj = {};
 let result = '';
+
+// Get filename from command line argument
+function getFilePath() {
+    // Grab requested filename from the command line
+    const arguments = process.argv.splice(2);
+    const requestedFileName = arguments[0];
+
+    // Look for file in immediate directory or in `samples` folder
+    return path.resolve(__dirname, `${__dirname}\\samples`, requestedFileName);
+}
 
 // Process a given line of text and populate working variables with data
 function processLineOfText(lineOfText) {
@@ -59,5 +71,6 @@ function printResult() {
     console.log(result);
 }
 
+module.exports.getFilePath = getFilePath;
 module.exports.processLineOfText = processLineOfText;
 module.exports.printResult = printResult;

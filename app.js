@@ -6,20 +6,14 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
-const { printResult, processLineOfText } = require('./util');
+const { getFilePath, printResult, processLineOfText } = require('./util');
 
-// Constants
-// const TEXT_FILENAME = 'test_file.txt';
-// const TEXT_FILENAME = 'chapter1.txt';
-// const TEXT_FILENAME = '10chapters.txt';
-const TEXT_FILENAME = 'moby_dick.txt';
+getTopPhrasesFromFile(getFilePath(), processLineOfText);
 
-getTopPhrasesFromFile(TEXT_FILENAME, processLineOfText);
-
-function getTopPhrasesFromFile(filename, callback) {
+function getTopPhrasesFromFile(filePath, callback) {
     // Create stream for reading the specified file
     const lineReader = readline.createInterface({
-        input: fs.createReadStream(path.resolve(__dirname, filename))
+        input: fs.createReadStream(filePath)
     });
 
     // Read each line of the text file for processing
