@@ -8,11 +8,11 @@ This is a NodeJS app that will run from the command line. Place a text file in t
 
 Output will be the Top 100 3-word phrases in this format:
 
-> threewordphrase - 10  
-anotherphraseentry - 7  
-yetanotherone - 4  
-heresthisphrase - 2  
-andthisone - 2
+> three word phrase - 10  
+another phrase entry - 7  
+yet another one - 4  
+here's this phrase - 2  
+and this one - 2
 
 Should be performant enough to process over 22,000 lines of Herman Melville's *Moby Dick* in about 250 milliseconds.
 
