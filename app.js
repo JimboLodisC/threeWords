@@ -9,10 +9,10 @@ const readline = require('readline');
 const { printResult, processLineOfText } = require('./util');
 
 // Constants
-const TEXT_FILENAME = 'test_file.txt';
+// const TEXT_FILENAME = 'test_file.txt';
 // const TEXT_FILENAME = 'chapter1.txt';
 // const TEXT_FILENAME = '10chapters.txt';
-// const TEXT_FILENAME = 'moby_dick.txt';
+const TEXT_FILENAME = 'moby_dick.txt';
 
 getTopPhrasesFromFile(TEXT_FILENAME, processLineOfText);
 

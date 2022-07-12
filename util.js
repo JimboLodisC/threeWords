@@ -8,16 +8,32 @@ let wordsArray = [];
 let phrasesObj = {};
 let result = '';
 
+// Process a given line of text and populate working variables with data
 function processLineOfText(lineOfText) {
-    // Clean up line of text and add each new word to array for processing
-    const cleanLineOfText = lineOfText.toLowerCase().replace(INVALID_CHAR_REGEX, ' ').replace(NOT_A_CONTRACTION_REGEX, ' ');
-    const newWords = cleanLineOfText.split(' ');
+    // Clean up line of text and split into array of words
+    const newWords = parseTextForNewWords(lineOfText)
+
+    // Add each new word from this line of text to the stack
     newWords.forEach(word => {
         if (word) wordsArray.push(word);
     });
 
     // Process all possible 3 word phrases stored in the array
-    // (will run on loop as long as there are enough words fora phrase before reading next line of text)
+    processWordsArray();
+}
+
+// Parse and clean up line of text
+function parseTextForNewWords(lineOfText) {
+    return lineOfText
+        .toLowerCase()
+        .replace(INVALID_CHAR_REGEX, ' ')
+        .replace(NOT_A_CONTRACTION_REGEX, ' ')
+        .split(' ');
+}
+
+// Run through the current stack of words to find 3 word phrases
+function processWordsArray() {
+    // will run on loop as long as there are enough words for a phrase
     while (wordsArray.length > 2) {
         // Create the 3 word phrase
         const threeWordPhrase = `${wordsArray[0]}${wordsArray[1]}${wordsArray[2]}`;
@@ -28,8 +44,10 @@ function processLineOfText(lineOfText) {
         // Remove first word from beginning of array
         wordsArray.shift();
     }
+}
 
-    // Sort by tally and only save the most common phrases
+function printResult() {
+    // Sort by tally and filter for only the most common phrases
     const topPhraseList = Object.entries(phrasesObj)
         .sort(([, tally1], [, tally2]) => tally2 - tally1).slice(0, MAXIMUM_RESULT_LENGTH);
 
@@ -37,9 +55,9 @@ function processLineOfText(lineOfText) {
     result = topPhraseList.map(phrase => {
         return `${phrase[0]} - ${phrase[1]}`;
     }).join('\n');
-}
 
-function printResult() { console.log(result) }
+    console.log(result);
+}
 
 module.exports.processLineOfText = processLineOfText;
 module.exports.printResult = printResult;
