@@ -11,6 +11,8 @@ const { getFilePath, printResult, processLineOfText } = require('./util');
 getTopPhrasesFromFile(getFilePath(), processLineOfText);
 
 function getTopPhrasesFromFile(filePath, callback) {
+    if (!filePath) return;
+
     // Create stream for reading the specified file
     const lineReader = readline.createInterface({
         input: fs.createReadStream(filePath)

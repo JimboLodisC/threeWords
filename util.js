@@ -1,3 +1,4 @@
+const fs = require("fs");
 const path = require("path");
 
 // Constants
@@ -16,8 +17,12 @@ function getFilePath() {
     const arguments = process.argv.splice(2);
     const requestedFileName = arguments[0];
 
-    // Look for file in immediate directory or in `samples` folder
-    return path.resolve(__dirname, `${__dirname}\\samples`, requestedFileName);
+    // Find file in immediate directory or look in `samples` folder
+    const primaryPath = path.resolve(__dirname, requestedFileName);
+    const secondaryPath = path.resolve(__dirname, 'samples', requestedFileName);
+    if (fs.existsSync(primaryPath)) return primaryPath;
+    if (fs.existsSync(secondaryPath)) return secondaryPath;
+    console.error(`File '${requestedFileName}' was not found.`);
 }
 
 // Process a given line of text and populate working variables with data
