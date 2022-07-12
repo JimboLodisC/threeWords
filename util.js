@@ -1,16 +1,16 @@
 // Constants
 const INVALID_CHAR_REGEX = /[!"#$%|&()*+,-./\\:;|<=>?@[\]^_`{|}~\t\n\r]/g;
-const CONTRACTION_REGEX = /'+\s|\s+'/g;
+const NOT_A_CONTRACTION_REGEX = /'+\s|\s+'/g;
 const MAXIMUM_RESULT_LENGTH = 5;
 
 // Working variables
 let wordsArray = [];
-let wordsObj = {};
+let phrasesObj = {};
 let result = '';
 
 function processLineOfText(lineOfText) {
     // Clean up line of text and add each new word to array for processing
-    const cleanLineOfText = lineOfText.toLowerCase().replace(INVALID_CHAR_REGEX, ' ').replace(CONTRACTION_REGEX, ' ');
+    const cleanLineOfText = lineOfText.toLowerCase().replace(INVALID_CHAR_REGEX, ' ').replace(NOT_A_CONTRACTION_REGEX, ' ');
     const newWords = cleanLineOfText.split(' ');
     newWords.forEach(word => {
         if (word) wordsArray.push(word);
@@ -23,14 +23,14 @@ function processLineOfText(lineOfText) {
         const threeWordPhrase = `${wordsArray[0]}${wordsArray[1]}${wordsArray[2]}`;
 
         // Add to the tally for that phrase
-        wordsObj[threeWordPhrase] = 1 + (wordsObj[threeWordPhrase] || 0);
+        phrasesObj[threeWordPhrase] = 1 + (phrasesObj[threeWordPhrase] || 0);
 
         // Remove first word from beginning of array
         wordsArray.shift();
     }
 
     // Sort by tally and only save the most common phrases
-    const topPhraseList = Object.entries(wordsObj)
+    const topPhraseList = Object.entries(phrasesObj)
         .sort(([, tally1], [, tally2]) => tally2 - tally1).slice(0, MAXIMUM_RESULT_LENGTH);
 
     // Format result for output
