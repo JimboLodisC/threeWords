@@ -16,7 +16,19 @@ andthisone - 2
 
 Should be performant enough to process over 22,000 lines of Herman Melville's *Moby Dick* in about 250 milliseconds.
 
+Also works with unicode characters such as Æ Ää Öö Üü Ěě ē̂ τ ρ ῆ μ α
+
+Two test files have been provided:
+
+* `test_file.txt`: smaller data set, unicode chars
+* `moby_dick.txt`: 22,108 lines of text
+
 ***
 
 #### Current known issues: 
 * needs tests!
+
+#### Future Ideas
+* Dockerize it
+* add ability to point to text files stored on a server or on github
+* handle multiple files at once

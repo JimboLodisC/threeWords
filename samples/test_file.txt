@@ -21,3 +21,14 @@ more ß in Straße
 another ß in Straße
 testing ß in Straße
 last ß in Straße
+
+τρῆμα
+Ä, Ö, Ü ē̂
+τρῆμα
+ä, ö, ü 
+Ä, Ö, Ü ē̂
+ä, ö, ü
+
+Æ Ě,Æ ě Æ
+Æ Ě,Æ ě Æ
+Æ Ě,Æ ě Æ
